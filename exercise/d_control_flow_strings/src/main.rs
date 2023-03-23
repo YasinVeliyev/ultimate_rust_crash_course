@@ -14,12 +14,11 @@ fn main() {
 
     // This consumes the `args` vector to iterate through each String
     for arg in args {
-        if arg=="sum".to_string(){
+        if arg == *"sum" {
             sum()
-        }
-        else if arg=="double".to_string(){
+        } else if arg == *"double" {
             double()
-        }else{
+        } else {
             count(arg)
         }
         // 1a. Your task: handle the command-line arguments!
@@ -27,7 +26,6 @@ fn main() {
         // - If arg is "sum", then call the sum() function
         // - If arg is "double", then call the double() function
         // - If arg is anything else, then call the count() function, passing "arg" to it.
-
 
         // 1b. Now try passing "sum", "double" and "bananas" to the program by adding your argument
         // after "cargo run".  For example "cargo run sum"
@@ -39,8 +37,8 @@ fn sum() {
     // 2. Use a "for loop" to iterate through integers from 7 to 23 *inclusive* using a range
     // and add them all together (increment the `sum` variable).  Hint: You should get 255
     // Run it with `cargo run sum`
-    for s in  7..=23{
-        sum+=s
+    for s in 7..=23 {
+        sum += s
     }
 
     println!("The sum is {}", sum);
@@ -56,7 +54,10 @@ fn double() {
         x *= 2;
         count += 1;
     }
-    println!("You can double x {} times until x is larger than 500", count);
+    println!(
+        "You can double x {} times until x is larger than 500",
+        count
+    );
 }
 
 fn count(arg: String) {
@@ -66,9 +67,11 @@ fn count(arg: String) {
     // print!("{} ", arg); // Execute this line 8 times, and then break. `print!` doesn't add a newline.
     let mut count = 1;
     loop {
-        println!("{}",arg);
-        if count==8{break}
-        count+=1;
+        println!("{}", arg);
+        if count == 8 {
+            break;
+        }
+        count += 1;
     }
 
     println!(); // This will output just a newline at the end for cleanliness.
